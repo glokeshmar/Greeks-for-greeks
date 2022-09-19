@@ -1,0 +1,68 @@
+//my solution
+
+package GFG_PROBLEM;
+public class remaining_string {
+	public static void main(String args[]) {
+		String s="Thisisdemostring";
+		int count=3,count1=0,count2=0,p=0;
+		char ch='i';		
+		s.toLowerCase();
+		for(int i=0;i<s.length();i++) {
+			if(count2<0 || count<0) {
+				System.out.print("Empty String");
+			}
+			else {	
+			if(s.charAt(i)==ch ) {
+				count1++;
+				if(count1<=count) {
+					 p=i;
+					count2++;
+				}}
+			
+			if(count2==count) {		
+				if( i==s.length()-1 && s.charAt(i)==ch)
+					  System.out.print("Empty string");
+				
+				if(s.charAt(i)>=ch || s.charAt(i)<=ch ) {
+					if(p==i && s.charAt(i)==ch)
+						continue;
+					else
+						System.out.print(s.charAt(i));
+				}	
+			}
+			
+			}
+	}
+		if(count!=count2)
+			System.out.println("Empty string");
+		}
+}
+	
+
+//-------------------------------------------------
+
+// gfg solution
+
+class Solution {
+    String printString(String str, char ch, int count) {
+        // code here
+        int occ = 0, i;
+        if (count == 0) {
+           return(str);
+            
+        }
+        for (i = 0; i < str.length(); i++) {
+      
+            if (str.charAt(i) == ch)
+                occ++;
+      
+            if (occ == count)
+                break;
+        }
+        if (i < str.length() - 1)
+            return(str.substring(i + 1));
+      
+        else
+            return("Empty string");
+    }
+}
